@@ -10,10 +10,17 @@ environment:
       PHP_VER: 8.1
       VC_VER: vs16
       VCVARS_VER: ""
+      PHP_STABILITY: stable
     - ARCH: x64
       PHP_VER: 8.2
       VC_VER: vs16
       VCVARS_VER: ""
+      PHP_STABILITY: stable
+    - ARCH: x64
+      PHP_VER: 8.4
+      VC_VER: vs16
+      VCVARS_VER: ""
+      PHP_STABILITY: staging
 
 install:
 - cmd: cinst wget
@@ -35,7 +42,7 @@ build_script:
 
     xcopy C:\projects\pmmpthread C:\projects\php-src\ext\pmmpthread /s /e /y /q
 
-    phpsdk_deps -u -t %VC_VER% -b %PHP_VER% -a %ARCH% -f -d C:\projects\php-src\deps
+    phpsdk_deps -u -t %VC_VER% -b %PHP_VER% -s %PHP_STABILITY% -a %ARCH% -f -d C:\projects\php-src\deps
 
     wget http://www.mirrorservice.org/sites/sources.redhat.com/pub/pthreads-win32/pthreads-w32-2-9-1-release.zip -q
 
