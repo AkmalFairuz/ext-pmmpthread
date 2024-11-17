@@ -59,7 +59,7 @@ void pmmpthread_store_destroy(pmmpthread_store_t* store) {
 We may use integer keys, so the ht must be explicitly initialized to avoid zend allocating it as packed, which will cause assert failures. */
 static void pmmpthread_store_init_local_properties(zend_object* object) {
 #if PHP_MAJOR_VERSION == 8 && PHP_MINOR_VERSION >= 4
-	rebuild_object_properties_internal(object);
+	zend_std_get_properties_ex(object);
 #else
 	rebuild_object_properties(object);
 #endif
@@ -147,7 +147,7 @@ static inline zend_bool pmmpthread_store_retain_in_local_cache(zval* val) {
 }
 
 static inline zend_bool pmmpthread_store_valid_local_cache_item(zval* val) {
-	//rebuild_object_properties_internal() may add IS_INDIRECT zvals to point to the linear property table
+	//zend_std_get_properties_ex() may add IS_INDIRECT zvals to point to the linear property table
 	//we don't want that, because they aren't used by pmmpthread and are always uninitialized
 	return Z_TYPE_P(val) != IS_INDIRECT;
 }

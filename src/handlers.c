@@ -49,7 +49,7 @@ HashTable* pmmpthread_read_properties(PMMPTHREAD_READ_PROPERTIES_PASSTHRU_D) {
 	pmmpthread_zend_object_t* threaded = PMMPTHREAD_FETCH_FROM(object);
 
 #if PHP_MAJOR_VERSION == 8 && PHP_MINOR_VERSION >= 4
-	rebuild_object_properties_internal(&threaded->std);
+	zend_std_get_properties_ex(&threaded->std);
 #else
 	rebuild_object_properties(&threaded->std);
 #endif
