@@ -480,12 +480,10 @@ static zend_class_entry* pmmpthread_copy_entry(const pmmpthread_ident_t* source,
 
 	memcpy(&prepared->info.user, &candidate->info.user, sizeof(candidate->info.user));
 
-#if PHP_VERSION_ID < 80400
 	if ((PMMPTHREAD_ZG(options) & PMMPTHREAD_INHERIT_COMMENTS) &&
-	   (candidate->info.user.doc_comment)) {
-			prepared->info.user.doc_comment = pmmpthread_copy_string(candidate->info.user.doc_comment);
-		} else prepared->info.user.doc_comment = NULL;
-#endif
+	(candidate->doc_comment)) {
+		prepared->doc_comment = pmmpthread_copy_string(candidate->doc_comment);
+	} else prepared->doc_comment = NULL;
 	
 	if (candidate->attributes) {
 		prepared->attributes = pmmpthread_copy_attributes(source, candidate->attributes, prepared->info.user.filename);
