@@ -35,7 +35,7 @@ jobs:
           - php: 8.3.13
             vs-crt: vs16
           - php: 8.4.0RC4
-            vs-crt: vs16 #should be vs17 but deps aren't available yet
+            vs-crt: vs17
 
     uses: ./.github/workflows/main-php-matrix-windows.yml
     with:
