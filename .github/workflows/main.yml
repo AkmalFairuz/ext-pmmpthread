@@ -30,10 +30,13 @@ jobs:
         include:
           - php: 8.1
             vs-crt: vs16
+            build-type: stable
           - php: 8.2
             vs-crt: vs16
+            build-type: stable
           - php: 8.3
             vs-crt: vs16
+            build-type: stable
           - php: 8.4
             vs-crt: vs16
             build-type: staging
@@ -42,5 +45,5 @@ jobs:
     with:
       php: ${{ matrix.php }}
       vs-crt: ${{ matrix.vs-crt }}
-      build-type: ${{ matrix.build-type || inputs.build-type }}
+      build-type: ${{ matrix.build-type }}
     secrets: inherit
