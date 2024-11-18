@@ -15,7 +15,7 @@ jobs:
           - 8.1.26
           - 8.2.13
           - 8.3.0
-          - 8.4.0beta5
+          - 8.4.0RC4
 
     uses: ./.github/workflows/main-php-matrix.yml
     with:
@@ -34,6 +34,9 @@ jobs:
             vs-crt: vs16
           - php: 8.3
             vs-crt: vs16
+          - php: 8.4
+            vs-crt: vs16
+            build-type: staging
 
     uses: ./.github/workflows/main-php-matrix-windows.yml
     with:
