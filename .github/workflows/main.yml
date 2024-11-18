@@ -30,10 +30,13 @@ jobs:
         include:
           - php: 8.1.30
             vs-crt: vs16
+            runs-on: windows-2019
           - php: 8.2.25
             vs-crt: vs16
+            runs-on: windows-2019
           - php: 8.3.13
             vs-crt: vs16
+            runs-on: windows-2019
           - php: 8.4.0RC4
             vs-crt: vs17
             runs-on: windows-2022 #duct tape until we can get vs16 on 2022 image
@@ -42,4 +45,5 @@ jobs:
     with:
       php: ${{ matrix.php }}
       vs-crt: ${{ matrix.vs-crt }}
+      runs-on: ${{ matrix.runs-on }}
     secrets: inherit
