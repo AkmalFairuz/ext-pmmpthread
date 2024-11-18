@@ -38,7 +38,7 @@ jobs:
             vs-crt: vs16
             build-type: stable
           - php: 8.4
-            vs-crt: vs16
+            vs-crt: vs17
             build-type: staging
 
     uses: ./.github/workflows/main-php-matrix-windows.yml
