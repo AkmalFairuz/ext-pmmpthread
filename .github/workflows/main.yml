@@ -36,6 +36,7 @@ jobs:
             vs-crt: vs16
           - php: 8.4.0RC4
             vs-crt: vs17
+            runs-on: windows-2022 #duct tape until we can get vs16 on 2022 image
 
     uses: ./.github/workflows/main-php-matrix-windows.yml
     with:
