@@ -41,5 +41,4 @@ jobs:
     with:
       php: ${{ matrix.php }}
       vs-crt: ${{ matrix.vs-crt }}
-      build-type: ${{ matrix.build-type }}
     secrets: inherit
