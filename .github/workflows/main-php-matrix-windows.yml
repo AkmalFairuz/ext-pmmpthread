@@ -21,7 +21,7 @@ on:
         default: stable
 
 env:
-  PHP_SDK_BINARY_TOOLS_VER: 2.2.0
+  PHP_SDK_BINARY_TOOLS_VER: 2.3.0
   PTHREAD_W32_VER: 3.0.0
 
 jobs:
